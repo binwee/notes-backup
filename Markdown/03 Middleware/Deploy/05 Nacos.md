@@ -62,6 +62,26 @@ db.password.0=Root@1234
 /usr/local/nacos/bin/shutdown.sh
 ```
 
+```
+vim /etc/systemd/system/nacos.service
+
+[Unit]
+Description=Nacos
+After=network.target
+
+[Service]
+Type=forking
+Environment=JAVA_HOME=$JAVA_HOME
+ExecStart=/usr/local/nacos/bin/startup.sh -m standalone
+ExecStop=/usr/local/nacos/bin/shutdown.sh
+Restart=on-failure
+RestartSec=3
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+```
+
 集群部署
 
 ```
@@ -77,6 +97,26 @@ vim /usr/local/nacos/conf/cluster.conf
 ```
 /usr/local/nacos/bin/startup.sh
 /usr/local/nacos/bin/shutdown.sh
+```
+
+```
+vim /etc/systemd/system/nacos.service
+
+[Unit]
+Description=Nacos
+After=network.target
+
+[Service]
+Type=forking
+Environment=JAVA_HOME=$JAVA_HOME
+ExecStart=/usr/local/nacos/bin/startup.sh
+ExecStop=/usr/local/nacos/bin/shutdown.sh
+Restart=on-failure
+RestartSec=3
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 ## 监控
