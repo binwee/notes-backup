@@ -52,9 +52,9 @@ vim /usr/local/nacos/conf/application.properties
 
 spring.datasource.platform=mysql
 db.num=1
-db.url.0=jdbc:mysql://10.xx.xx.1:3306/nacos_devtest?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true
-db.user=root
-db.password=Root@1234
+db.url.0=jdbc:mysql://10.xx.xx.1:3306/nacos?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+db.user.0=root
+db.password.0=Root@1234
 ```
 
 ```
